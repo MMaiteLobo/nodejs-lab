@@ -1,0 +1,20 @@
+<%- include('includes/head.ejs') %>
+</head>
+
+<body>
+    <%- include('includes/navigation.ejs') %>
+    <main>
+        <h1>Error!</h1>
+        <p>Something went wrong!</p>
+        <% if (error) { %>
+            <div style="background: #f8d7da; border: 1px solid #f5c6cb; padding: 10px; margin: 10px 0; border-radius: 4px;">
+                <h3>Error Details:</h3>
+                <p><strong>Message:</strong> <%= error.message %></p>
+                <% if (error.stack) { %>
+                    <p><strong>Stack:</strong></p>
+                    <pre style="background: #f1f1f1; padding: 10px; overflow-x: auto;"><%= error.stack %></pre>
+                <% } %>
+            </div>
+        <% } %>
+    </main>
+<%- include('includes/end.ejs') %>

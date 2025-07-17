@@ -1,0 +1,14 @@
+services:
+  mysq-nodejs-lab:
+    platform: linux/amd64
+    container_name: mysql
+    build: 
+      context: ./.dockers/mysql
+      dockerfile: Dockerfile
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: nodejs_lab
+    ports:
+      - "3321:3306"
+    volumes:
+      - ./.dockers/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
